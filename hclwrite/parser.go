@@ -243,7 +243,7 @@ func parseAttribute(nativeAttr *hclsyntax.Attribute, from, leadComments, lineCom
 
 	{
 		cn := newNode(newComments(leadComments.Tokens()))
-		attr.leadComments = cn
+		attr.LeadComments = cn
 		children.AppendNode(cn)
 	}
 
@@ -274,7 +274,7 @@ func parseAttribute(nativeAttr *hclsyntax.Attribute, from, leadComments, lineCom
 
 	{
 		cn := newNode(newComments(lineComments.Tokens()))
-		attr.lineComments = cn
+		attr.LineComments = cn
 		children.AppendNode(cn)
 	}
 
@@ -518,10 +518,10 @@ func writerTokens(nativeTokens hclsyntax.Tokens) Tokens {
 // boundaries, such that the slice operator could be used to produce
 // three token sequences for before, within, and after respectively:
 //
-//     start, end := partitionTokens(toks, rng)
-//     before := toks[:start]
-//     within := toks[start:end]
-//     after := toks[end:]
+//	start, end := partitionTokens(toks, rng)
+//	before := toks[:start]
+//	within := toks[start:end]
+//	after := toks[end:]
 //
 // This works best when the range is aligned with token boundaries (e.g.
 // because it was produced in terms of the scanner's result) but if that isn't

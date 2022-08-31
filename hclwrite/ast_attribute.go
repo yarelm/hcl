@@ -7,10 +7,10 @@ import (
 type Attribute struct {
 	inTree
 
-	leadComments *node
+	LeadComments *node
 	name         *node
 	expr         *node
-	lineComments *node
+	LineComments *node
 }
 
 func newAttribute() *Attribute {
@@ -24,7 +24,7 @@ func (a *Attribute) init(name string, expr *Expression) {
 
 	nameTok := newIdentToken(name)
 	nameObj := newIdentifier(nameTok)
-	a.leadComments = a.children.Append(newComments(nil))
+	a.LeadComments = a.children.Append(newComments(nil))
 	a.name = a.children.Append(nameObj)
 	a.children.AppendUnstructuredTokens(Tokens{
 		{
@@ -34,7 +34,7 @@ func (a *Attribute) init(name string, expr *Expression) {
 	})
 	a.expr = a.children.Append(expr)
 	a.expr.list = a.children
-	a.lineComments = a.children.Append(newComments(nil))
+	a.LineComments = a.children.Append(newComments(nil))
 	a.children.AppendUnstructuredTokens(Tokens{
 		{
 			Type:  hclsyntax.TokenNewline,
