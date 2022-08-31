@@ -8,7 +8,7 @@ import (
 type Block struct {
 	inTree
 
-	leadComments *node
+	LeadComments *node
 	typeName     *node
 	labels       *node
 	open         *node
@@ -32,7 +32,7 @@ func NewBlock(typeName string, labels []string) *Block {
 func (b *Block) init(typeName string, labels []string) {
 	nameTok := newIdentToken(typeName)
 	nameObj := newIdentifier(nameTok)
-	b.leadComments = b.children.Append(newComments(nil))
+	b.LeadComments = b.children.Append(newComments(nil))
 	b.typeName = b.children.Append(nameObj)
 	labelsObj := newBlockLabels(labels)
 	b.labels = b.children.Append(labelsObj)

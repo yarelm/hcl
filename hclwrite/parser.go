@@ -294,7 +294,7 @@ func parseBlock(nativeBlock *hclsyntax.Block, from, leadComments, lineComments, 
 
 	{
 		cn := newNode(newComments(leadComments.Tokens()))
-		block.leadComments = cn
+		block.LeadComments = cn
 		children.AppendNode(cn)
 	}
 
